@@ -1,0 +1,10 @@
+{
+  "@@locale": "fa",
+  "loginTitle": "ورود",
+  "enterEmail": "لطفاً ایمیل خود را وارد کنید",
+  "validEmail": "لطفا یک ایمیل معتبر وارد کنید",
+  "enterPassword": "لطفاً پسورد خود را وارد کنید",
+  "validPasswordLength": "پسورد باید بیش از ۸ کاراکتر باشد",
+  "validPasswordFormat": "باید از حروف لاتین و حروف بزرگ و کوچک استفاده کنید",
+  "continue": "ادامه"
+}

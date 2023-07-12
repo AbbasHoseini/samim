@@ -1,0 +1,11 @@
+{
+    "@@locale": "en",
+    "loginTitle": "Login",
+    "enterEmail": "Please enter your email",
+    "validEmail": "Please enter a valid email",
+    "enterPassword": "Please enter your password",
+    "validPasswordLength": "Password must be at least 8 characters",
+    "validPasswordFormat": "Password must contain uppercase and lowercase letters",
+    "continue": "Continue"
+  }
+  
