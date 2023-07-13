@@ -4,6 +4,7 @@ import 'package:samim/features/authentication/login/domain/entities/country_repo
 import 'package:samim/features/authentication/login/domain/repositories/country_repository.dart';
 
 
+
 class GetCountryUseCase extends UseCase<DataState<CountryEntity>, String> {
   final CountryRepository countryRepository;
   GetCountryUseCase(this.countryRepository);
