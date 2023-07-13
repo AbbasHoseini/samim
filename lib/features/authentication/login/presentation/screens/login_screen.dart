@@ -4,6 +4,8 @@ import 'package:samim/core/utils/email_validator.dart';
 import 'package:samim/core/utils/password_validator.dart';
 import 'package:samim/core/widgets/buttons/buttons.dart';
 import 'package:provider/provider.dart';
+// import 'package:samim/features/authentication/login/data/data_source/local/api_provider.dart';
+import 'package:samim/features/authentication/login/data/data_source/remote/api_provider.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -204,6 +206,13 @@ class _LoginScreenState extends State<LoginScreen> {
                             myFunc: () async {
                               if (_formKey.currentState!.validate()) {
                                 _formKey.currentState!.save();
+                                Future.delayed(Duration(seconds: 3), () async{
+                                  // ApiProvider? apiProvider = ApiProvider();
+                                  // final res = apiProvider.getUserData();
+                                  ApiProvider apiProvider = ApiProvider();
+                                  final res = await apiProvider.getCountries();
+                                  print(' data statusCode ${res.statusCode}');
+                                });
                               }
                             },
                             isLoading: false,

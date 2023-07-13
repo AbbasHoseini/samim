@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Constants {
-  static const baseUrl = "https://api.openweathermap.org";
-  static const apiKeys1 = "879e6d95e1194fb79e82294e5465f7aa";
+  static const baseUrl = "https://raw.githubusercontent.com/";
 
   static Color colorTextOnlinght800 = Colors.grey.shade800;
   Color colorTextOnlinght600 = Colors.grey.shade600;
