@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:samim/core/utils/constants.dart';
 
-class ApiProvider {
+class RemoteApiProvider {
   final Dio _dio = Dio();
 
   Future<dynamic> getCountries() async {

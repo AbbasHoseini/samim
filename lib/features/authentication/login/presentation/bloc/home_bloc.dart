@@ -11,7 +11,7 @@ class HomeBloc extends Bloc<HomeBlocEvent, HomeBlocState> {
   final GetCountryUseCase getCountryUseCase;
 
   HomeBloc(this.getCountryUseCase)
-      : super(HomeBlocState(loginStatus: LoginLoading())) {
+      : super(HomeBlocState(loginStatus: LoginInitial())) {
     on<LoadLoginEvent>((event, emit) async {
       emit(state.copyWith(newLoginStatus: LoginLoading()));
 

@@ -16,3 +16,5 @@ class LoginError extends LoginStatus {
   final String message;
   LoginError(this.message);
 }
+
+class LoginInitial extends LoginStatus {}

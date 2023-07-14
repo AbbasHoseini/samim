@@ -1,12 +1,12 @@
 import 'package:dio/dio.dart';
-import 'package:samim/features/authentication/login/data/data_source/remote/api_provider.dart';
+import 'package:samim/features/authentication/login/data/data_source/remote/remote_api_provider.dart';
 import 'package:samim/features/authentication/login/data/models/country_model.dart';
 import 'package:samim/features/authentication/login/domain/entities/country_repository_entity.dart';
 import 'package:samim/core/resources/data_state.dart';
 import 'package:samim/features/authentication/login/domain/repositories/country_repository.dart';
 
 class CountryRepositoryImpl extends CountryRepository {
-  ApiProvider apiProvider;
+  RemoteApiProvider apiProvider;
   CountryRepositoryImpl(this.apiProvider);
 
   @override

@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:samim/core/utils/constants.dart';
 import 'package:samim/core/utils/email_validator.dart';
 import 'package:samim/core/utils/password_validator.dart';
 import 'package:samim/core/widgets/buttons/buttons.dart';
-import 'package:provider/provider.dart';
 // import 'package:samim/features/authentication/login/data/data_source/local/api_provider.dart';
-import 'package:samim/features/authentication/login/data/data_source/remote/api_provider.dart';
+import 'package:samim/features/authentication/login/data/data_source/remote/remote_api_provider.dart';
+import 'package:samim/features/authentication/login/presentation/bloc/home_bloc.dart';
+import 'package:samim/features/authentication/login/presentation/bloc/login_status.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -18,11 +20,15 @@ class _LoginScreenState extends State<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
 
   bool _isButtonActive = false;
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    print('vivvvview model: ');
     return WillPopScope(
       onWillPop: () async {
         return true;
@@ -201,22 +207,31 @@ class _LoginScreenState extends State<LoginScreen> {
                         Padding(
                           padding:
                               const EdgeInsets.only(top: 30.0, bottom: 20.0),
-                          child: PrimaryButton(
-                            text: 'ادامه',
-                            myFunc: () async {
-                              if (_formKey.currentState!.validate()) {
-                                _formKey.currentState!.save();
-                                Future.delayed(Duration(seconds: 3), () async{
-                                  // ApiProvider? apiProvider = ApiProvider();
-                                  // final res = apiProvider.getUserData();
-                                  ApiProvider apiProvider = ApiProvider();
-                                  final res = await apiProvider.getCountries();
-                                  print(' data statusCode ${res.statusCode}');
-                                });
-                              }
+                          child: BlocBuilder<HomeBloc, HomeBlocState>(
+                            builder: (context, state) {
+                              return PrimaryButton(
+                                text: 'ادامه',
+                                myFunc: () async {
+                                  if (_formKey.currentState!.validate()) {
+                                    _formKey.currentState!.save();
+                                        BlocProvider.of<HomeBloc>(context).add(LoadLoginEvent());
+                                    Future.delayed(Duration(seconds: 3),
+                                        () async {
+                                      // ApiProvider? apiProvider = ApiProvider();
+                                      // final res = apiProvider.getUserData();
+                                      // ApiProvider apiProvider = ApiProvider();
+                                      // final res = await apiProvider.getCountries();
+                                      // print(' data statusCode ${res.statusCode}');
+                                    });
+                                  }
+                                },
+                                isLoading: state.loginStatus is LoginLoading,
+                                //  state.loginStatus is LoadLoginEvent
+                                //     ? true
+                                //     : false,
+                                isActive: _isButtonActive,
+                              );
                             },
-                            isLoading: false,
-                            isActive: _isButtonActive,
                           ),
                         ),
                       ],

@@ -1,7 +1,7 @@
 import 'package:flutter/services.dart' show rootBundle;
 import 'dart:convert';
 
-class ApiProvider {
+class LocalApiProvider {
 
   Future<List<Map<String, dynamic>>> getUserData() async {
     final String jsonData = await rootBundle.loadString('assets/users.json');
