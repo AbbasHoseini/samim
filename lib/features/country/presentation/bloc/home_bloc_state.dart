@@ -11,11 +11,9 @@ part of 'home_bloc.dart';
 
 class HomeBlocState {
   LoginStatus loginStatus;
-  String message;
-  HomeBlocState({required this.loginStatus, required this.message});
+  HomeBlocState({required this.loginStatus});
 
-  HomeBlocState copyWith({LoginStatus? newLoginStatus, String? message}) {
-    return HomeBlocState(
-        loginStatus: newLoginStatus ?? this.loginStatus, message: this.message);
+  HomeBlocState copyWith({LoginStatus? newLoginStatus}) {
+    return HomeBlocState(loginStatus: newLoginStatus ?? this.loginStatus);
   }
 }

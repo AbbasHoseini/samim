@@ -6,10 +6,8 @@ abstract class LoginStatus {}
 
 class LoginLoading extends LoginStatus {}
 
-
 class LoginCompleted extends LoginStatus {
-  final CountryEntity countryEntity;
-  LoginCompleted(this.countryEntity);
+  // LoginCompleted();
 }
 
 class LoginError extends LoginStatus {

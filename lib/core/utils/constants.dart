@@ -18,13 +18,12 @@ class Constants {
 
   static Color colorActionOnlightActive = Colors.grey.shade600;
   static Color colorTextOnLightWhite = const Color(0xFFFFFFFF);
-  static Color colorActionOnlightSelected = Colors.grey.shade500.withOpacity(0.08);
-  static Color colorActionOnlighDisabled = Colors.grey.shade500.withOpacity(0.80);
+  static Color colorActionOnlightSelected =
+      Colors.grey.shade500.withOpacity(0.08);
+  static Color colorActionOnlighDisabled =
+      Colors.grey.shade500.withOpacity(0.80);
 
-
-
-
-
+  static Color colorOnLightWhite = Colors.white;
 
   static double fontHeadline1 = 28.43;
   static double fontHeadline2 = 21.33;

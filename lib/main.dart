@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:samim/core/app_route.dart';
 import 'package:samim/features/authentication/login/presentation/bloc/home_bloc.dart';
 import 'package:samim/features/authentication/login/presentation/screens/login_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -12,8 +14,11 @@ void main() async {
 
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
+    builder: FToastBuilder(),
     home: MultiBlocProvider(providers: [
       BlocProvider(create: (_)=>locator<HomeBloc>()),
-    ], child: const LoginScreen()),
+    ], child: MaterialApp.router(
+      routerConfig: AppRoute.router,
+    )),
   ));
 }
