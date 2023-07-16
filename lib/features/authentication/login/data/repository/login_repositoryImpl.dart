@@ -46,7 +46,7 @@ class LoginRepositoryImpl extends LoginRepository {
   //   }
   // }
 
-  @override
+@override
 Future login(EmailPasswordParams params) async {
   try {
     dynamic response = await localApiProvider.login();

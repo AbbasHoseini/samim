@@ -18,7 +18,7 @@ class CountryBloc extends Bloc<HomeBlocEvent, CountryBlocState> {
       emit(state.copyWith(newCountryStatus: CountryLoading()));
 
       DataState dataState = await getCountryUseCase.call(NoParams());
-      debugPrint('country bloc result ${dataState.message} ${dataState.data}');
+      // debugPrint('country bloc result ${dataState.message} ${dataState.data}');
 
       if (dataState is DataSuccess) {
         emit(
