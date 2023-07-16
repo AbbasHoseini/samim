@@ -39,7 +39,7 @@ class HomeBloc extends Bloc<HomeBlocEvent, HomeBlocState> {
     on<LoadLoginEvent>((event, emit) async {
       emit(state.copyWith(newLoginStatus: LoginLoading()));
 
-      await Future.delayed(Duration(seconds: 3), () async {
+      // await Future.delayed(Duration(seconds: 3), () async {
         var dataState = await loginUseCase.call(event.emailPasswordParams);
         print('dataaaaaa ${dataState.message}');
 
@@ -52,7 +52,7 @@ class HomeBloc extends Bloc<HomeBlocEvent, HomeBlocState> {
           print('h');
           emit(state.copyWith(newLoginStatus: LoginError(dataState.message!)));
         }
-      });
+      // });
     });
   }
 }

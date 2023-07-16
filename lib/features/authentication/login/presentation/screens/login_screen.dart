@@ -290,38 +290,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             ],
                           ),
                         ),
-                        // Padding(
-                        //   padding:
-                        //       const EdgeInsets.only(top: 30.0, bottom: 20.0),
-                        //   child: BlocBuilder<HomeBloc, HomeBlocState>(
-                        //     builder: (context, state) {
-                        //       return PrimaryButton(
-                        //         text: 'ادامه',
-                        //         myFunc: () async {
-                        //           if (_formKey.currentState!.validate()) {
-                        //             _formKey.currentState!.save();
-                        //             BlocProvider.of<HomeBloc>(context).add(
-                        //                 LoadLoginEvent(EmailPasswordParams(
-                        //                     email.text, password.text)));
-                        //           }
-                        //         },
-                        //         isLoading: state.loginStatus is LoginLoading,
-                        //         isActive: _isButtonActive,
-                        //       );
-                        //     },
-                        //     buildWhen: (previous, current) {
-                        //       // print('##### ${current.loginStatus}');
-                        //       if (current.loginStatus is LoginError) {
-                        //             final loginError = current.loginStatus as LoginError;
-                        //         _showToast(loginError.message);
-                        //         return false;
-                        //       }
-                        //       return true;
-                        //     },
-                        //   ),
-                        // ),
-
-                        Padding(
+                       Padding(
                           padding:
                               const EdgeInsets.only(top: 30.0, bottom: 20.0),
                           child: BlocConsumer<HomeBloc, HomeBlocState>(

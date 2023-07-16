@@ -28,7 +28,7 @@ class Constants {
   static double fontHeadline1 = 28.43;
   static double fontHeadline2 = 21.33;
 
-  double fontParagraph1 = 16.0;
+  static double fontParagraph1 = 16.0;
   double fontParagraph2 = 14.0;
   double fontParagraph3 = 12.0;
   static double fontParagraph4 = 10.0;
