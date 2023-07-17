@@ -8,21 +8,15 @@ import 'package:samim/core/utils/constants.dart';
 import 'package:test/test.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized(); // Add this line
+  WidgetsFlutterBinding.ensureInitialized(); 
 
   late Dio dio;
   late DioAdapter dioAdapter;
-  // RemoteApiProvider remoteApiProvider;
 
   Response<dynamic> response;
 
   group('group1', () {
     const baseUrl = 'https://example.com';
-
-    // const userCredentials = <String, dynamic>{
-    //   'email': 'test@example.com',
-    //   'password': 'password',
-    // };
 
     setUp(() {
       dio = Dio(BaseOptions(baseUrl: baseUrl));

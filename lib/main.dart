@@ -9,11 +9,7 @@ import 'locator.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
-  //   // Set preferred orientations
-  // await SystemChrome.setPreferredOrientations([
-  //   DeviceOrientation.portraitUp, // Allow only portrait orientation
-  // ]);
+  
 
   ///  init locator
   await setup();

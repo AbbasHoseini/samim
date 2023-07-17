@@ -183,19 +183,13 @@ class _LoginScreenState extends State<LoginScreen> {
                                   ),
                                   child: TextFormField(
                                     controller: email,
+                                    key: const Key('email'),
                                     textAlign: TextAlign.start,
                                     keyboardType: TextInputType.emailAddress,
-                                    validator: (value) {
-                                      if (value!.isEmpty) {
-                                        return 'لطفاً ایمیل خود را وارد کنید';
-                                      }
-                                      if (!EmailValidator.validate(value)) {
-                                        return 'لطفا یک ایمیل معتبر وارد کنید';
-                                      }
-                                      return null;
-                                    },
+                                    validator: (email) =>
+                                        EmailValidator.validate(email!),
                                     onSaved: (value) {
-                                      // _email = value;
+                                      // email = value;
                                     },
                                     decoration: InputDecoration(
                                       hintText: 'abbas@gmail.com',
@@ -239,20 +233,10 @@ class _LoginScreenState extends State<LoginScreen> {
                                 child: TextFormField(
                                   controller: password,
                                   textAlign: TextAlign.start,
-                                  validator: (value) {
-                                    if (value!.isEmpty) {
-                                      return 'لطفاً پسورد خود را وارد کنید';
-                                    }
-                                    if (value.length < 8) {
-                                      return 'پسورد باید بیش از ۸ کاراکتر باشد';
-                                    }
-                                    if (!PasswordValidator.validate(value)) {
-                                      return 'باید از حروف لاتین و حروف بزرگ و کوچک استفاده کنید';
-                                    }
-                                    return null;
-                                  },
+                                  key: const Key('password'),
+                                  validator: (password) => PasswordValidator.validate(password!),
                                   onSaved: (value) {
-                                    // _email = value;
+                                    // password = value;
                                   },
                                   decoration: InputDecoration(
                                     hintText: 'Abbas123',
@@ -290,7 +274,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             ],
                           ),
                         ),
-                       Padding(
+                        Padding(
                           padding:
                               const EdgeInsets.only(top: 30.0, bottom: 20.0),
                           child: BlocConsumer<HomeBloc, HomeBlocState>(
