@@ -22,18 +22,6 @@ class ActionButton extends StatelessWidget {
         width: double.infinity,
         child: ElevatedButton(
           onPressed: () => myFunc(),
-          child: isLoading
-              ? CupertinoActivityIndicator(
-                  color: Constants.colorPrimaryMain)
-              : Text(
-                  text,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                      fontFamily: 'PelakFa',
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16.0,
-                      color: Constants.colorTextOnlinght800),
-                ),
           // style: ButtonStyle(
           //   textStyle: MaterialStateProperty.all<TextStyle>(
           //       TextStyle(color: colorTextOnlinght800)),
@@ -53,6 +41,18 @@ class ActionButton extends StatelessWidget {
                     color: Colors.grey.shade300,
                   )),
               backgroundColor: Constants.colorTextOnLightWhite),
+          child: isLoading
+              ? CupertinoActivityIndicator(
+                  color: Constants.colorPrimaryMain)
+              : Text(
+                  text,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      fontFamily: 'PelakFa',
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16.0,
+                      color: Constants.colorTextOnlinght800),
+                ),
         ),
       ),
     );

@@ -8,7 +8,6 @@ import 'package:samim/core/utils/email_validator.dart';
 import 'package:samim/core/utils/password_validator.dart';
 import 'package:samim/core/widgets/buttons/buttons.dart';
 // import 'package:samim/features/authentication/login/data/data_source/local/api_provider.dart';
-import 'package:samim/features/authentication/login/data/data_source/remote/remote_api_provider.dart';
 import 'package:samim/features/authentication/login/data/models/email_password_params_model.dart';
 import 'package:samim/features/authentication/login/presentation/bloc/home_bloc.dart';
 import 'package:samim/features/authentication/login/presentation/bloc/login_status.dart';
@@ -43,7 +42,7 @@ class _LoginScreenState extends State<LoginScreen> {
             Icons.close,
             color: Constants.colorOnLightWhite,
           ),
-          SizedBox(
+          const SizedBox(
             width: 12.0,
           ),
           Text(
@@ -59,7 +58,7 @@ class _LoginScreenState extends State<LoginScreen> {
     fToast.showToast(
       child: toast,
       gravity: ToastGravity.TOP,
-      toastDuration: Duration(seconds: 2),
+      toastDuration: const Duration(seconds: 2),
     );
   }
 

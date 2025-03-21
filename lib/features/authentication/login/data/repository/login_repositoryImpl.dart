@@ -1,28 +1,24 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:samim/core/resources/data_state.dart';
 import 'package:samim/features/authentication/login/data/data_source/local/local_api_provider.dart';
 import 'package:samim/features/authentication/login/data/models/email_password_params_model.dart';
+import 'package:samim/features/authentication/login/data/models/user.dart';
 import 'package:samim/features/authentication/login/domain/entities/user_entity.dart';
 import 'package:samim/features/authentication/login/domain/repositories/login_repository.dart';
-import 'package:samim/features/authentication/login/domain/use_cases/login_usecase.dart';
 
 class LoginRepositoryImpl extends LoginRepository {
   LocalApiProvider localApiProvider;
   LoginRepositoryImpl(this.localApiProvider);
 
-  
   // @override
   // Future login(EmailPasswordParams params) async {
   //   try {
   //     dynamic response = await localApiProvider.login();
   //     print('EEEEEEE $response ${response.runtimeType}');
-
   //     // final List<dynamic> jsonList = json.decode(response);
   //     final List<UserEntity> users =
   //         response.map((json) => UserEntity.fromJson(json)).toList();
   //     print('object');
-
   //     for (var user in users) {
   //       if (user.email == params.email) {
   //         if (user.state == 'enable') {
@@ -46,38 +42,36 @@ class LoginRepositoryImpl extends LoginRepository {
   //   }
   // }
 
-@override
-Future login(EmailPasswordParams params) async {
-  try {
-    dynamic response = await localApiProvider.login();
-    print('EEEEEEE $response ${response.runtimeType}');
+  @override
+  Future login(EmailPasswordParams params) async {
+    try {
+      dynamic response = await localApiProvider.login();
+      print('EEEEEEE $response ${response.runtimeType}');
 
-    final List<dynamic> jsonList = response;
-    final List<UserEntity> users = jsonList
-        .map<UserEntity>((json) => UserEntity.fromJson(json))
-        .toList();
-    print('object');
+      final List<dynamic> jsonList = response;
+      final List<UserEntity> users = jsonList
+          .map<UserEntity>((json) => User.fromJson(json))
+          .toList();
+      print('object');
 
-    for (var user in users) {
-      if (user.email == params.email) {
-        if (user.state == 'enable') {
-          print('TTTTTTT ${user.email}');
-          return DataSuccess(null, 'Successful');
-        } else {
-          print('TTTTTTT ${user.email}');
-          return DataFailed( "شما اجازه دسترسی به این قسمت را ندارید");
+      for (var user in users) {
+        if (user.email == params.email) {
+          if (user.state == 'enable') {
+            print('TTTTTTT ${user.email}');
+            return const DataSuccess(null, 'Successful');
+          } else {
+            print('TTTTTTT ${user.email}');
+            return const DataFailed("شما اجازه دسترسی به این قسمت را ندارید");
+          }
         }
       }
+      print('TTTTTTT null');
+      return const DataFailed('کاربری با این مشخصات یافت نشد');
+    } catch (e, s) {
+      debugPrint('Error $e, $s');
+      return const DataFailed('مشکلی بوجود آمده است');
     }
-    print('TTTTTTT null');
-    return DataFailed('کاربری با این مشخصات یافت نشد');
-  } catch (e, s) {
-    debugPrint('Error $e, $s');
-    return DataFailed('مشکلی بوجود آمده است');
   }
-}
-
-
 }
 
 class UserSearch {

@@ -8,8 +8,8 @@ class PrimaryButton extends StatelessWidget {
   final Function myFunc;
   final bool isLoading;
   final bool isActive;
-  Color? color;
-  PrimaryButton({
+  final Color? color;
+  const PrimaryButton({
     Key? key,
     required this.text,
     required this.myFunc,
@@ -31,15 +31,6 @@ class PrimaryButton extends StatelessWidget {
             return;
           }
         },
-        child: isLoading
-            ? CupertinoActivityIndicator(color: Constants.colorTextOnLightWhite)
-            : Text(
-                text,
-                style: TextStyle(
-                    fontFamily: 'PelakFa',
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16.0),
-              ),
         style: ButtonStyle(
           textStyle: MaterialStateProperty.all<TextStyle>(
               TextStyle(color: Constants.colorTextOnLightWhite)),
@@ -57,6 +48,15 @@ class PrimaryButton extends StatelessWidget {
           shadowColor: MaterialStateProperty.all<Color>(Colors.white),
           overlayColor: MaterialStateProperty.all<Color>(Colors.white),
         ),
+        child: isLoading
+            ? CupertinoActivityIndicator(color: Constants.colorTextOnLightWhite)
+            : Text(
+                text,
+                style: const TextStyle(
+                    fontFamily: 'PelakFa',
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16.0),
+              ),
       ),
     );
   }

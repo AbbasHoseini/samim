@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:samim/core/app_route.dart';
 import 'package:samim/features/authentication/login/presentation/bloc/home_bloc.dart';
@@ -9,7 +8,6 @@ import 'locator.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  
 
   ///  init locator
   await setup();
@@ -25,12 +23,13 @@ void main() async {
       // ),
     ),
     home: MultiBlocProvider(
-        providers: [
-          BlocProvider(create: (_) => locator<HomeBloc>()),
-          BlocProvider(create: (_) => locator<CountryBloc>()),
-        ],
-        child: MaterialApp.router(
-          routerConfig: AppRoute.router,
-        )),
+      providers: [
+        BlocProvider(create: (_) => locator<HomeBloc>()),
+        BlocProvider(create: (_) => locator<CountryBloc>()),
+      ],
+      child: MaterialApp.router(
+        routerConfig: AppRoute.router,
+      ),
+    ),
   ));
 }

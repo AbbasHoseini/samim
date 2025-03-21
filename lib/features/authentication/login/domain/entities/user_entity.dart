@@ -11,18 +11,6 @@ class UserEntity extends Equatable {
     this.state,
   });
 
-  factory UserEntity.fromJson(Map<String, dynamic> json) => UserEntity(
-        username: json["username"],
-        email: json["email"],
-        state: json["state"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "username": username,
-        "email": email,
-        "state": state,
-      };
-
   @override
   // TODO: implement props
   List<Object?> get props => [

@@ -20,7 +20,7 @@ class DateConverter{
         DateTime.fromMillisecondsSinceEpoch(
             (dt * 1000) +
                 timeZone * 1000,
-            isUtc: true));;
+            isUtc: true));
   }
 
 

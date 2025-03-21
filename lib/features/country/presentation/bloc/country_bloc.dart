@@ -1,6 +1,5 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:flutter/foundation.dart';
 import 'package:samim/core/resources/data_state.dart';
 import 'package:samim/core/usecase/use_case.dart';
 import 'package:samim/features/country/domain/use_cases/get_country_usecase.dart';

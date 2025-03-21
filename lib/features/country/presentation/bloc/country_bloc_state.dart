@@ -14,6 +14,6 @@ class CountryBlocState {
   CountryBlocState({required this.countryStatus});
 
   CountryBlocState copyWith({CountryStatus? newCountryStatus}) {
-    return CountryBlocState(countryStatus: newCountryStatus ?? this.countryStatus);
+    return CountryBlocState(countryStatus: newCountryStatus ?? countryStatus);
   }
 }

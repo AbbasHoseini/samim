@@ -12,7 +12,7 @@ class Constants {
 // Color colorPrimaryLighter = const Color.fromRGBO(99, 42, 129, 0.4);
 // Color colorPrimaryLight = const Color.fromRGBO(99, 42, 129, 0.08);
 
-  static Color colorPrimaryMain = Color.fromRGBO(216, 70, 71, 0.9);
+  static Color colorPrimaryMain = const Color.fromRGBO(216, 70, 71, 0.9);
   Color colorPrimaryDark = const Color.fromRGBO(216, 70, 71, 1.5);
   Color colorPrimaryDarker = const Color.fromRGBO(216, 70, 71, 2.0);
 

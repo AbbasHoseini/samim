@@ -1,6 +1,5 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:flutter/foundation.dart';
 import 'package:samim/core/resources/data_state.dart';
 import 'package:samim/features/authentication/login/data/models/email_password_params_model.dart';
 import 'package:samim/features/authentication/login/domain/use_cases/login_usecase.dart';

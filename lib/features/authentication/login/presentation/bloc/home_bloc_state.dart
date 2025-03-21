@@ -16,6 +16,6 @@ class HomeBlocState {
 
   HomeBlocState copyWith({LoginStatus? newLoginStatus, String? message}) {
     return HomeBlocState(
-        loginStatus: newLoginStatus ?? this.loginStatus, message: this.message);
+        loginStatus: newLoginStatus ?? loginStatus, message: this.message);
   }
 }
